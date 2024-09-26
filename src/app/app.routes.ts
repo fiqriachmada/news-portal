@@ -6,21 +6,13 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: AppComponent,
-  },
-  {
-    path: 'news',
-    component: NewsComponent,
-  },
-  {
     path: 'top-stories',
     component: NewsListComponent,
   },
 ];
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule],
+// })
+// export class AppRoutingModule {}
