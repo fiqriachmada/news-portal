@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, Routes } from '@angular/router';
 import { DataService } from './data.service';
 import { Observable } from 'rxjs';
+import { routes } from './app.routes';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +22,12 @@ export class AppComponent {
   }[] = []; // Initialize as an empty array
   private homesObservable: Observable<any>;
   loading: boolean = true;
-
+  router: Routes = [];
   constructor(
     private dataService: DataService // private router: Router
   ) {
+    this.router = routes;
+
     this.homesObservable = this.dataService.get_homes();
     this.homesObservable.subscribe(
       (res) => {
@@ -46,6 +49,10 @@ export class AppComponent {
 
   stringifyHomes() {
     return JSON.stringify(this.homes[0], null, 2);
+  }
+
+  getRouter() {
+    return this.router;
   }
 
   onClick(url: string) {
