@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { DataService } from './data.service';
 import { Observable } from 'rxjs';
+import { DataService } from '../../data.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-news-list',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  imports: [],
+  templateUrl: './news-list.component.html',
+  styleUrl: './news-list.component.css',
 })
-export class AppComponent {
+export class NewsListComponent {
   title = 'news-portal';
 
   homes: {

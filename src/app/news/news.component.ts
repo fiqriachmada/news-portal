@@ -1,30 +1,25 @@
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { DataService } from './data.service';
+import { RouterOutlet } from '@angular/router';
+
 import { Observable } from 'rxjs';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  // templateUrl: './app.component.html',
+  templateUrl: './news.component.html',
+  // styleUrls: ['./../app.component.css'],
 })
-export class AppComponent {
+export class NewsComponent {
   title = 'news-portal';
 
-  homes: {
-    title: string;
-    abstract: string;
-    url: string;
-    multimedia: { url: string }[];
-  }[] = []; // Initialize as an empty array
+  homes: { title: string; abstract: string }[] = []; // Initialize as an empty array
   private homesObservable: Observable<any>;
   loading: boolean = true;
 
-  constructor(
-    private dataService: DataService // private router: Router
-  ) {
+  constructor(private dataService: DataService) {
     this.homesObservable = this.dataService.get_homes();
     this.homesObservable.subscribe(
       (res) => {
@@ -46,10 +41,5 @@ export class AppComponent {
 
   stringifyHomes() {
     return JSON.stringify(this.homes[0], null, 2);
-  }
-
-  onClick(url: string) {
-    console.log('url', url);
-    // return this.router.navigate([url]);
   }
 }

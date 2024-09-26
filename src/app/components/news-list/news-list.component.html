@@ -1,0 +1,47 @@
+<style>
+    :host {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+            "Segoe UI Symbol";
+    }
+</style>
+
+<main>
+    <div class="container p-4">
+        <!-- <pre>
+
+      {{ stringifyHomes() }}
+    </pre> -->
+
+        @if (loading) {
+        <div>Loading homes...</div>
+
+        }
+        <div class="grid grid-cols-3 gap-4">
+            @for (item of homes; track $index) {
+            <a href="{{ item.url }}" target="_blank">
+                <div (click)="onClick(item.url)" class="border  bg-blue-100 rounded-lg shadow-lg drop-shadow-lg h-full">
+                    <img class="rounded-t-lg" src="{{ item.multimedia[1].url }}" alt="">
+                    <div class="p-4">
+
+
+                        <div class="text-xl font-extrabold">
+                            {{ item.title }} <!-- Adjust according to your actual data structure -->
+                        </div>
+                        <div>
+                            {{ item.abstract }} <!-- Adjust according to your actual data structure -->
+                        </div>
+                    </div>
+                </div>
+            </a>
+            }
+        </div>
+    </div>
+
+
+
+
+</main>
+
+
+
