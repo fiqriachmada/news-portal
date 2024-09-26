@@ -14,7 +14,7 @@ export const routes: Routes = [
     component: NewsComponent,
   },
   {
-    path: 'news-list',
+    path: 'top-stories',
     component: NewsListComponent,
   },
 ];
