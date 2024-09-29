@@ -18,9 +18,9 @@
 
         }
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            @for (item of homes; track $index) {
+            @for (item of arts; track $index) {
             <a href="{{ item.url }}" target="_blank">
-                <div (click)="onClick(item.url)"
+                <div
                     class="border  bg-blue-100 rounded-lg shadow-lg drop-shadow-lg h-full transition duration-500 ease-in-out data-[closed]:opacity-0 hover:-translate-y-2">
                     <img class="rounded-t-lg w-full " src="{{ item.multimedia[1].url }}" alt="">
                     <div class="p-4">

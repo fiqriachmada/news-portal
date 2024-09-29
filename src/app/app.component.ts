@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet, Routes } from '@angular/router';
 import { DataService } from './data.service';
 import { Observable } from 'rxjs';
-import { routes } from './app.routes';
+import { filteredExcludeRoutes, routes } from './app.routes';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +26,8 @@ export class AppComponent {
   constructor(
     private dataService: DataService // private router: Router
   ) {
-    this.router = routes;
+    console.log('filteredExcludeRoutes', filteredExcludeRoutes);
+    this.router = filteredExcludeRoutes;
 
     this.homesObservable = this.dataService.get_homes();
     this.homesObservable.subscribe(
@@ -53,6 +54,10 @@ export class AppComponent {
 
   getRouter() {
     return this.router;
+  }
+
+  activeRoute(){
+    
   }
 
   onClick(url: string) {

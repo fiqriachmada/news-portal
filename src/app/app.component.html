@@ -7,7 +7,7 @@
 
           {{ getRouter() }}
         </pre> -->
-        <a class="hover:bg-black hover:text-white rounded-md py-1 px-3 m-3" href="/">Home</a>
+        <!-- <a class="hover:bg-black hover:text-white rounded-md py-1 px-3 m-3" href="/">Home</a> -->
         @for (item of getRouter(); track $index) {
         <a class="hover:bg-black hover:text-white rounded-md py-1 px-3 m-3" href="/{{ item.path }}">{{ item.title }}</a>
         }
